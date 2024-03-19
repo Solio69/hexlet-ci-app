@@ -1,31 +1,31 @@
-name: CI
+name: CI  # Название воркфлоу, отображаемое в интерфейсе GitHub Actions.
 
-on:
-  push:
-    branches:
-      - main
+on:  # Определяет условия запуска воркфлоу.
+  push:  # Воркфлоу запускается при событии push в репозиторий.
+    branches:  # Определяет ветки, на которых будет запускаться воркфлоу.
+      - main  # Воркфлоу запускается только при push в ветку main.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs:  # Определяет список заданий, которые будут выполняться в рамках воркфлоу.
+  build:  # Имя задания, можно выбрать произвольное.
+    runs-on: ubuntu-latest  # Определяет операционную систему, на которой будет выполняться задание. В данном случае, используется последняя версия Ubuntu.
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    steps:  # Список шагов, которые нужно выполнить в рамках задания.
+      - name: Checkout repository  # Название шага.
+        uses: actions/checkout@v2  # Использует действие для клонирования репозитория.
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+      - name: Setup Node.js  # Название шага.
+        uses: actions/setup-node@v2  # Использует действие для установки Node.js.
+        with:  # Параметры для действия.
+          node-version: '14'  # Устанавливает версию Node.js.
 
-      - name: Install dependencies
-        run: make install
+      - name: Install dependencies  # Название шага.
+        run: make install  # Выполняет команду `make install` для установки зависимостей.
 
-      - name: Build project
-        run: make build
+      - name: Build project  # Название шага.
+        run: make build  # Выполняет команду `make build` для сборки проекта.
 
-      - name: Run tests
-        run: make test
+      - name: Run tests  # Название шага.
+        run: make test  # Выполняет команду `make test` для запуска тестов.
 
-      - name: Run linter
-        run: make lint
+      - name: Run linter  # Название шага.
+        run: make lint  # Выполняет команду `make lint` для запуска линтера.
