@@ -27,6 +27,8 @@ make test
 make lint
 ```
 
+GitHub Actions
+[![GitHub Actions](https://github.com/Solio69/hexlet-ci-app/actions/workflows/main.yml/badge.svg)](https://github.com/Solio69/hexlet-ci-app/actions/workflows/main.yml)
 ---
 
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=hexlet-ci-app)
