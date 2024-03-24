@@ -4,7 +4,7 @@ install:
 	npm install
 
 build:
-	npm run build
+	export NODE_ENV=production && npm run build
 
 start:
 	npm start
