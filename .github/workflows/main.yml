@@ -11,7 +11,7 @@ jobs:  # Определяет список заданий, которые буд
 
     steps:  # Список шагов, которые нужно выполнить в рамках задания.
       - name: Checkout repository  # Название шага.
-        uses: actions/checkout@v2  # Использует действие для клонирования репозитория.
+        uses: actions/setup-node@v3  # Использует действие для клонирования репозитория.
 
       - name: Setup Node.js with cache  # Название шага.
         uses: actions/setup-node@v3  # Использует действие для установки Node.js.
