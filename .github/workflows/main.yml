@@ -11,12 +11,12 @@ jobs:  # Определяет список заданий, которые буд
 
     steps:  # Список шагов, которые нужно выполнить в рамках задания.
       - name: Checkout repository  # Название шага.
-        uses: actions/setup-node@v3  # Использует действие для клонирования репозитория.
+        uses: actions/setup-node@v2  # Использует действие для клонирования репозитория.
 
       - name: Setup Node.js with cache  # Название шага.
-        uses: actions/setup-node@v3  # Использует действие для установки Node.js.
+        uses: actions/setup-node@v2  # Использует действие для установки Node.js.
         with:  # Параметры для действия.
-          node-version: '14'  # Устанавливает версию Node.js.
+          node-version: '20'  # Устанавливает версию Node.js.
           cache: 'npm'  # Включает кеширование для npm.
 
       - name: Install dependencies  # Название шага.
