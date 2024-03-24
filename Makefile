@@ -9,8 +9,8 @@ build:
 start:
 	npm start
 
-# test:
-# 	npm test
+test:
+	npm test
 
 lint:
 	npx eslint .

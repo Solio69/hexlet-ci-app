@@ -25,8 +25,8 @@ jobs:  # Определяет список заданий, которые буд
       - name: Build project  # Название шага.
         run: make build  # Выполняет команду `make build` для сборки проекта.
 
-      # - name: Run tests  # Название шага.
-      #   run: make test  # Выполняет команду `make test` для запуска тестов.
+      - name: Run tests  # Название шага.
+        run: make test  # Выполняет команду `make test` для запуска тестов.
 
       - name: Run linter  # Название шага.
         run: make lint  # Выполняет команду `make lint` для запуска линтера.
