@@ -13,10 +13,11 @@ jobs:  # Определяет список заданий, которые буд
       - name: Checkout repository  # Название шага.
         uses: actions/checkout@v2  # Использует действие для клонирования репозитория.
 
-      - name: Setup Node.js  # Название шага.
+      - name: Setup Node.js with cache  # Название шага.
         uses: actions/setup-node@v2  # Использует действие для установки Node.js.
         with:  # Параметры для действия.
           node-version: '14'  # Устанавливает версию Node.js.
+          cache: 'npm'  # Включает кеширование для npm.
 
       - name: Install dependencies  # Название шага.
         run: make install  # Выполняет команду `make install` для установки зависимостей.
@@ -30,7 +31,10 @@ jobs:  # Определяет список заданий, которые буд
       - name: Run linter  # Название шага.
         run: make lint  # Выполняет команду `make lint` для запуска линтера.
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
+      # Этот шаг используется для проверки уязвимостей в зависимостях проекта
+      # и выполняется с использованием инструмента Snyk.
+      # Предполагается, что переменная среды SNYK_TOKEN содержит токен для авторизации.
+      - name: Run Snyk to check for vulnerabilities  # Название шага.
+        uses: snyk/actions/node@master  # Использует действие для проверки уязвимостей.
+        env:  # Определяет переменные среды, необходимые для выполнения действия.
+          SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}  # Использует токен Snyk для авторизации.
